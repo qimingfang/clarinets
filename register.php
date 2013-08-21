@@ -1,11 +1,23 @@
 <?php
 	include "includes/functions.php";
 
+	if (isset($_GET['admin'])){
+		$isadmin = generate_hidden("u_isadmin", "1");
+		$isleader = generate_hidden("u_isleader", "1");
+	} else {
+		$isadmin = generate_hidden("u_isadmin", "0");
+		$isleader = generate_hidden("u_isleader", "0");
+	}
+
+	function generate_hidden($name, $value){
+		return "<input type='hidden' name='$name' value='$value' />";
+	}
+
 	$content .= title("New User");
 	$content .= '
 		<form class="formee" method="post" action="new.php?user">
 			<div style="padding-bottom:10px;"><em class="formee-req">*</em> = cannot be changed and must be unique</div>
-			<fieldset>
+			<fieldset>' . $isadmin . $isleader . '
 				<div class="grid-12-12">
 	                <label>Email <em class="formee-req">*</em></label>
 	               <input type="text" name="u_email" />
@@ -13,6 +25,14 @@
 				<div class="grid-12-12">
 	                <label>Name</label>
 	               <input type="text" name="u_name" />
+		        </div>
+		        <div class="grid-12-12">
+	                <label>Password</label>
+	               <input type="password" name="u_pwd1" />
+		        </div>
+		        <div class="grid-12-12">
+	                <label>Password Confirm</label>
+	               <input type="password" name="u_pwd2" />
 		        </div>
 		        <div class="grid-12-12">
 	                <label>Major</label>

@@ -2,15 +2,18 @@
 	include "includes/functions.php";
 	
 	//admin funciton
-	function process_user($user){
+	function process_admin_user($user){
 		$id = $user['u_id'];
+
 		$active = $user['u_isactive'] ? "deactivate" : "activate";
 
-		return "<tr><td>$id</td><td>" . $user['u_name']. "</td><td>" . $user['u_email'] . "</td><td>Is Active: ". 
-			$user['u_isactive']. "</td><td>Is Admin: " . $user['u_isadmin'] . "</td>" .
-			"<td><a href='admin.php?makeadmin=$id'>Make Admin</a></td>" .
-			"<td><a href='admin.php?$active=$id'>$active</a></td>" . 
-			"<td><a href='admin.php?delete=$id'>DELETE</a></td>";
+		return "<tr><td>$id</td><td>" . $user['u_name']. "</td><td>" . $user['u_email'] . "</td><td>". 
+			$user['u_isactive']. "</td><td>" . $user['u_isadmin'] . "</td>" .
+			"<td> " . $user['u_isleader'] . "</td>" .
+			"<td><a href='action.php?$active=$id'>$active</a></td>" . 
+			"<td><a href='action.php?makeadmin=$id&isadmin=" . $user['u_isadmin'] . "''>Toggle</a></td>" .
+			"<td><a href='action.php?leader=$id&isadmin=" . $user['u_isleader'] . "''>Toggle</a></td>" .
+			"<td><a href='action.php?delete=$id' onclick='return confirm(\"Are you sure?\");'>DELETE</a></td>";
 	}
 
 	if (isset($_SESSION['user_file_ext'])){
@@ -60,6 +63,10 @@
 	                <label>Class Of</label>
 	               <input type="text" name="u_classof" value="' . $user["u_classof"] . '" />
 		        </div>
+		        <div class="grid-12-12">
+	                <label>Image (uploading not supported ... yet. Easiest is to go to facebook profile, right click profile picture -> copy image url -> paste here)</label>
+	               <input type="text" name="u_avatar" value="' . $user["u_avatar"] . '" />
+		        </div>
 				<div class="grid-12-12">
 	                <label>Quote</label>
 	               <input type="text" name="u_quote" value="' . $user["u_quote"] . '" />
@@ -93,8 +100,10 @@
 		$content .= title("User Manager (Admin Only)");
 
 		$query = "SELECT * FROM q_users";
+		
+		$headers = Array("ID", "Name", "Email", "Is Active", "Is Admin", "Is Current Section Leader",  "(de)Activate", "Toggle Is-Admin", "Toggle Is-Leader", "Delete");
 		db_connect();
-		$content .= table(db_query($query, "process_user"));
+		$content .= table("<tr><td>" . implode("</td><td>", $headers) . "</td></tr>" . db_query($query, "process_admin_user"));
 		db_close();
 
 	}

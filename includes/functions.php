@@ -71,6 +71,38 @@
 				</div>';
 	}
 
+	/**
+	 * Shared Processing Functions
+	 */
+
+	function process_user($arr){
+	$name = $arr["u_name"];
+	$major = $arr["u_major"];
+	$classof = $arr["u_classof"];
+	$hometown = $arr["u_hometown"];
+	$bio = $arr["u_bio"];
+	$picture =  strlen($arr["u_avatar"]) == 0 ? ("images/noimg.jpg") : $arr["u_avatar"];
+	$quote = $arr["u_quote"];
+	$email = $arr["u_email"];
+
+	$sectionleader = "";
+	if ($arr["u_isleader"] == 1){
+		$sectionleader = '<em class="formee-req">*</em>';
+	}
+
+	$ret = "";
+	$ret .= "<div class='member'>";
+	$ret .= "<div class='member-pic'><img src='" . $picture . "' alt='$name' /></div>";
+	$ret .= "<div class='member-desc'>";
+	$ret .= "<div class='member-name'><a href='mailto:$email'>$name</a> $sectionleader | Class of $classof | Major: $major | Hometown: $hometown</div>";
+	$ret .= $bio;
+	$ret .= "</div>";
+	$ret .= "<div class='member-quote'>$quote</div>";
+	$ret .= "</div>";
+
+	return $ret;
+}
+
 	##########################################################################################################
 	# IMAGE FUNCTIONS																						 #
 	# You do not need to alter these functions																 #

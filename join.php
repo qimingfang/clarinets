@@ -1,11 +1,10 @@
 <?
 include "includes/functions.php";
 
-$title = "Members";
+$title = "Photos";
+$content = "To join us, please send an email to our current section leaders!";
 
-$content .= "<div><em class='formee-req'>*</em> = section leader</div>";
-
-$query = "SELECT * FROM q_users WHERE u_isactive='1'";
+$query = "SELECT * FROM q_users WHERE u_isactive='1' AND u_isleader='1'";
 db_connect();
 $content .= db_query($query, "process_user");
 db_close();

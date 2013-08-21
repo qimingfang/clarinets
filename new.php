@@ -13,8 +13,22 @@
 		array_push($keys, "u_isactive");
 		array_push($values, "1");
 
+		$pwd1 = $_POST['u_pwd1'];
+		$pwd2 = $_POST['u_pwd2'];
+
+		if (strlen($pwd1) <= 0){
+			die ("Choose a longer password");
+		}
+
+		if (strcmp($pwd1, $pwd2) != 0){
+			die ("Passwords ('$pwd1', '$pwd2') don't match");
+		}
+
+		array_push($keys, "u_pwd");
+		array_push($values, "'" . hash('sha256', $pwd1) . "'");
+
 		foreach($_POST as $key => $value) {
-			if (strcmp($key, "user") != 0){	// dont want to insert button input
+			if (strcmp($key, "user") != 0 && strcmp($key, "u_pwd1") != 0 && strcmp($key, "u_pwd2") != 0){	// dont want to insert button input
 				array_push($keys, $key);
 				array_push($values, "'" . clean($value) . "'");
 			}
@@ -23,7 +37,7 @@
 		$query .= "(" . implode(",", $keys) . ")";
 		$query .= " VALUES ";
 		$query .= "(" . implode(",", $values) . ")";
-
+		
 		db_connect();
 		db_query_nr($query);
 		db_close();
