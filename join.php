@@ -1,7 +1,7 @@
 <?php
 include "includes/functions.php";
 
-$title = "Photos";
+$title = "Join Us";
 $content = "To join us, please send an email to our current section leaders!";
 
 $query = "SELECT * FROM q_users WHERE u_isactive='1' AND u_isleader='1'";

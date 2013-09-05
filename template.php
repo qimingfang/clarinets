@@ -87,7 +87,7 @@
 
 				<div class="right">
 					<p>
-						<a href="contact.php">Contact Us</a> |
+						<a href="join.php">Contact Us</a> |
 						<a href="http://mb.bigredbands.org/sections.php">Other Sections</a> |
 						<a href="http://bigredbands.org">Big Red Bands</a> |
 						<a href="http://www.cornell.edu">Cornell University</a><br />
