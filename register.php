@@ -55,6 +55,10 @@
 	               <input type="text" name="u_quote" />
 		        </div>
 		        <div class="grid-12-12">
+	                <label>Previous Titles (Rank Leader, Bandstaph, etc)</label>
+	               <input type="text" name="u_titles" />
+		        </div>
+		        <div class="grid-12-12">
 		        	<label>Bio</label>
 		        	<textarea id="blog_entry" name="u_bio" rows="" cols="" ></textarea>
 		        </div>

@@ -249,7 +249,9 @@
 			$state = 1;
 		}
 		
-		$mysqli->query($query);
+		if (!$mysqli->query($query)){
+			die("Fatal Error:" . $mysqli->error);
+		}
 		
 		if ($state == 1) db_close();
 	}

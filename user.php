@@ -72,6 +72,10 @@
 	               <input type="text" name="u_quote" value="' . $user["u_quote"] . '" />
 		        </div>
 		        <div class="grid-12-12">
+	                <label>Previous Titles (Rank Leader, Bandstaph, etc)</label>
+	               <input type="text" name="u_titles" value="' . $user["u_titles"] . '" />
+		        </div>
+		        <div class="grid-12-12">
 		        	<label>Bio</label>
 		        	<textarea id="blog_entry" name="u_bio" rows="" cols="" >' . $user["u_bio"] . '</textarea>
 		        </div>
