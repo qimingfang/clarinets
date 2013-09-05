@@ -5,7 +5,7 @@ $title = "Members";
 
 $content .= "<div><em class='formee-req'>*</em> = section leader</div>";
 
-$query = "SELECT * FROM q_users WHERE u_isactive='1' ORDER BY u_classof";
+$query = "SELECT * FROM q_users WHERE u_isactive='1' ORDER BY u_classof DESC";
 
 
 db_connect();

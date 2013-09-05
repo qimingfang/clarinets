@@ -28,7 +28,7 @@
 				$_SESSION['email'] = $arr['u_email'];
 				$_SESSION['isadmin'] = $arr['u_isadmin'];
 
-				$query = "UPDATE users SET u_lastlogin = CURRENT_TIMESTAMP WHERE u_id='".$arr['u_id']."'";
+				$query = "UPDATE q_users SET u_lastlogin = CURRENT_TIMESTAMP WHERE u_id='".$arr['u_id']."'";
 				db_query_nr($query);
 
 				header("location:user.php");

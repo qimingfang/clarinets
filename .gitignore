@@ -1,3 +1,4 @@
 includes/identity.php
 *.swp
 *.swo
+.DS_Store
