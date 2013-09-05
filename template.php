@@ -92,6 +92,7 @@
 						<a href="http://bigredbands.org">Big Red Bands</a> |
 						<a href="http://www.cornell.edu">Cornell University</a><br />
 						A modified <a href="http://www.freecsstemplates.org/" rel="nofollow">fct</a> design |
+						<a href="mailto:qf26@cornell.edu">Website Problems?</a> |
 						<?php if (!isset($_SESSION['uid'])){ ?>
 							<a href="login.php">Member Login</a>
 						<?php } else { ?>
