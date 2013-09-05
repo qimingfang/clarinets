@@ -1,4 +1,4 @@
-<?
+<?php
 	include "includes/functions.php";
 
 	if (isset($_POST['user']) && isset($_GET['user'])){

@@ -1,4 +1,4 @@
-<?
+<?php
 	include "includes/functions.php";
 	
 	if (isset($_SESSION['user_file_ext'])){

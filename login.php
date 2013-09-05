@@ -1,4 +1,4 @@
-<?
+<?php
 	include "includes/functions.php";
 
 	if (isset($_SESSION['uid'])){
@@ -8,7 +8,7 @@
 	if (isset ($_POST['submit'])){
 		if (!$_POST["email"] || !$_POST["password"]){
 			$title = "Error";
-			$content = "You need to provide a username and password! <a href='login.php'>Login</a>";
+			die("You need to provide a username and password! <a href='login.php'>Login</a>");
 		} else {
 
 			$email =  clean($_POST['email']);
@@ -38,7 +38,7 @@
 				unset($_SESSION['email']);
 				
 				$title = "Error";
-				$content = "Invalid Username or Password! <a href='login.php'>Login</a>";
+				die("Invalid Username or Password! <a href='login.php'>Login</a>");
 			}
 		}
 	}

@@ -1,4 +1,4 @@
-<?
+<?php
 	include "includes/functions.php";
 
 	if (isset($_POST['user']) && isset($_GET['user'])){
@@ -37,7 +37,7 @@
 		$query .= "(" . implode(",", $keys) . ")";
 		$query .= " VALUES ";
 		$query .= "(" . implode(",", $values) . ")";
-		
+
 		db_connect();
 		db_query_nr($query);
 		db_close();

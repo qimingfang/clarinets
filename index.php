@@ -1,4 +1,4 @@
-<?
+<?php
 	include "includes/functions.php";
 	
 	$title = "Home";
